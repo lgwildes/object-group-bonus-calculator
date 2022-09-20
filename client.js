@@ -57,38 +57,60 @@ for(person of employees){
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
   let bonus = 0;
-  console.log('testing review rating', employee.reviewRating)
-  switch(employee.reviewRating){
+  
+    switch(employee.reviewRating){
     
     case 0:
-      console.log('this is no bonus?')
-
-    return bonus;
+      console.log('this is no bonus?');
+      break;
     case 1:
-      console.log('this is no bonus?')
-
-    return bonus;
+      console.log('this is no bonus?');
+      break;
     case 2:
-      console.log('this is no bonus?')
-      //return bonus;
-      return bonus;
+      console.log('this is no bonus?');
+      break;
     case 3:
       bonus += .04;
-      console.log('should see 6', bonus);
-      return bonus;
+      console.log('4% bonus!');
+        break;
     case 4:
       bonus += .06;
-
-      return bonus;
+        break;
     case 5:
       bonus += .10;
-
-      return bonus;
-
-  }
+        break;
+ 
+      
+    }
   
+  if(employee.employeeNumber.length === 4 && employee.reviewRating >=3){
+    console.log('checking number length for Atticus', employee.employeeNumber.length)
+    bonus += .05
+  }
+
+  if(employee.annualSalary > 65000 && employee.reviewRating >=3){
+    bonus = .01;
+    
+  }
+
+  if(bonus > .13){
+    bonus = .13
+  }
+
+  //return bonus
   // return new object with bonus results
 
+  let employeeCompensation = {
+    name: employee.name,
+    bonusPercentage: bonus ,
+    totalCompensation: (bonus + 1) * employee.annualSalary,
+    totalBonus:(bonus + 1) * employee.annualSalary - employee.annualSalary
+  }
+return employeeCompensation
 }
 
-console.log('Their bonus is:', calculateIndividualEmployeeBonus(employees[0] ));
+console.log('Atticus bonus is, expect .09 :', calculateIndividualEmployeeBonus(employees[0] ));
+console.log('Jem bonus is, expect: .06', calculateIndividualEmployeeBonus(employees[1] ));
+console.log('Scout bonus is expect .01:', calculateIndividualEmployeeBonus(employees[2] ));
+console.log('Robert bonus is, expect no bonus:', calculateIndividualEmployeeBonus(employees[3] ));
+console.log('Mayella bonus is, expect no bonus:', calculateIndividualEmployeeBonus(employees[4] ));
