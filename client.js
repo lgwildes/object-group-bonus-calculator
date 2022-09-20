@@ -88,13 +88,13 @@ function calculateIndividualEmployeeBonus( employee ) {
     bonus += .05
   }
 
-  if(employee.annualSalary > 65000 && employee.reviewRating >=3){
-    bonus = .01;
-    
-  }
-
   if(bonus > .13){
     bonus = .13
+  }
+  
+  if(employee.annualSalary > 65000 && employee.reviewRating >=3){
+    bonus -= .01;
+    
   }
 
   //return bonus
@@ -111,6 +111,6 @@ return employeeCompensation
 
 console.log('Atticus bonus is, expect .09 :', calculateIndividualEmployeeBonus(employees[0] ));
 console.log('Jem bonus is, expect: .06', calculateIndividualEmployeeBonus(employees[1] ));
-console.log('Scout bonus is expect .01:', calculateIndividualEmployeeBonus(employees[2] ));
+console.log('Scout bonus is expect .12:', calculateIndividualEmployeeBonus(employees[2] ));
 console.log('Robert bonus is, expect no bonus:', calculateIndividualEmployeeBonus(employees[3] ));
 console.log('Mayella bonus is, expect no bonus:', calculateIndividualEmployeeBonus(employees[4] ));
