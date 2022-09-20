@@ -43,7 +43,7 @@ console.log('array of employee data: ',  employees );
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-console.log('testing to see employee object', employees[0] );
+//console.log('testing to see employee object', employees[0] );
 
 
 for(person of employees){
@@ -56,7 +56,8 @@ for(person of employees){
 //
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
-  let bonus = 0;
+
+ let bonus = 0;
   
     switch(employee.reviewRating){
     
@@ -75,16 +76,15 @@ function calculateIndividualEmployeeBonus( employee ) {
         break;
     case 4:
       bonus += .06;
+      console.log('6% bonus!')
         break;
     case 5:
       bonus += .10;
+      console.log('10% bonus!')
         break;
- 
-      
     }
   
   if(employee.employeeNumber.length === 4 && employee.reviewRating >=3){
-    console.log('checking number length for Atticus', employee.employeeNumber.length)
     bonus += .05
   }
 
@@ -92,7 +92,7 @@ function calculateIndividualEmployeeBonus( employee ) {
     bonus = .13
   }
   
-  if(employee.annualSalary > 65000 && employee.reviewRating >=3){
+  if(Number(employee.annualSalary) > 65000 && employee.reviewRating >=3){
     bonus -= .01;
     
   }
@@ -103,8 +103,8 @@ function calculateIndividualEmployeeBonus( employee ) {
   let employeeCompensation = {
     name: employee.name,
     bonusPercentage: bonus ,
-    totalCompensation: (bonus + 1) * employee.annualSalary,
-    totalBonus:(bonus + 1) * employee.annualSalary - employee.annualSalary
+    totalCompensation: (bonus + 1) * Number(employee.annualSalary),
+    totalBonus:(bonus + 1) * Number(employee.annualSalary) - Number(employee.annualSalary)
   }
 return employeeCompensation
 }
