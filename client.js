@@ -43,15 +43,52 @@ console.log('array of employee data: ',  employees );
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+console.log('testing to see employee object', employees[0] );
 
 
+for(person of employees){
+  console.log('listing employees' , person)
+
+
+}
 
 // This function will calculate 1 employee's bonus!
 //
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
-  
+  let bonus = 0;
+  console.log('testing review rating', employee.reviewRating)
+  switch(employee.reviewRating){
+    
+    case 0:
+      console.log('this is no bonus?')
+
+    return bonus;
+    case 1:
+      console.log('this is no bonus?')
+
+    return bonus;
+    case 2:
+      console.log('this is no bonus?')
+      //return bonus;
+      return bonus;
+    case 3:
+      bonus += .04;
+      console.log('should see 6', bonus);
+      return bonus;
+    case 4:
+      bonus += .06;
+
+      return bonus;
+    case 5:
+      bonus += .10;
+
+      return bonus;
+
+  }
   
   // return new object with bonus results
 
 }
+
+console.log('Their bonus is:', calculateIndividualEmployeeBonus(employees[0] ));
